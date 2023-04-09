@@ -1,7 +1,7 @@
 {
-  "name": "uni-tool",
+  "name": "@luck-8/uni-tool",
   "version": "1.0.0",
-  "description": "",
+  "description": "命令行工具",
   "main": "index.js",
   "bin": {
     "uni-tool": "bin/uni-tool"
@@ -20,5 +20,14 @@
     "magic-string": "^0.30.0",
     "md5": "^2.3.0",
     "tsup": "^6.6.3"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luck-8/uni-tool.git"
+  },
+  "bugs": {
+    "url": "https://github.com/luck-8/uni-tool/issues"
+  },
+  "homepage": "https://github.com/luck-8/uni-tool#readme"
 }

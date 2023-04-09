@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "tsup --watch",
-    "build": "tsup --minify"
+    "build": "tsup --minify",
+    "test": "echo ok"
   },
   "keywords": [],
   "author": "cl <theoceansdeep@163.com> (https://github.com/aComputerGeek)",

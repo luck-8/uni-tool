@@ -9,6 +9,7 @@
   "scripts": {
     "start": "tsup --watch",
     "build": "tsup --minify",
+    "dev": "uni-tool i18n",
     "test": "echo ok"
   },
   "keywords": [],

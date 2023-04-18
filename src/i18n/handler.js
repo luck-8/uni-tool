@@ -29,6 +29,11 @@ const deepRead = (root) => {
       fileString.replace(global.i18n.config.reg, (...args) => {
         const key = nextKey()
         allText = global.i18n.config.handlerResult(allText, key, args)
+
+        // 回退
+        if (global.i18n.back) {
+          return global.i18n.config.backHandler(allText, key, args)
+        }
         return global.i18n.config.handlerTemlpate(allText, key, args)
       })
       writeFileSync(fullPath, fileString.toString());

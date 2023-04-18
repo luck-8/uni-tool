@@ -16,15 +16,12 @@ export default async function () {
     const config = require(resolve(global.i18n.cacheDir, 'config.js'))
     global.i18n.config = config
   }
-
   if (!existsSync(global.i18n.cacheDir)) mkdirSync(global.i18n.cacheDir);
 
   // 获取所有文本
   const allText = handler(root);
-  // console.log(allText, 'allText');
-
   // 不进行翻译
-  if (!global.i18n.config.translate) return
+  if (global.i18n.back) return
 
   // 获取缓存的翻译文件， 对比翻译
   // TODO

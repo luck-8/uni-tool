@@ -1,6 +1,6 @@
 {
   "name": "@luck-8/uni-tool",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "命令行工具",
   "main": "index.js",
   "bin": {

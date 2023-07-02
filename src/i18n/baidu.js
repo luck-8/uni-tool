@@ -45,8 +45,10 @@ export const translate = async (allText, from, to) => {
       })
 
       const result = response.data
-      if (result && result.error_code)
+      if (result && result.error_code) {
+        console.log('翻译失败：', result);
         throw new Error(result.error_code)
+      }
 
       res = [...res, ...result.trans_result.map((item, j) => {
         if (!chankKeys[i] || !chankKeys[i][j]) {

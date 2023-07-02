@@ -15,6 +15,7 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
+          scope: '@luck-8'
       - name: Install modules
         run: npm install
       - name: Build

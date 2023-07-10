@@ -1,5 +1,76 @@
 import md5 from "md5"
 import axios from "axios"
+import ora from "ora"
+
+const omit = {
+  interval: 200,
+  frames: [
+    '    .',
+    '.   .',
+    ' .  .',
+    '  . .',
+    '   ..',
+    '.  ..',
+    ' . ..',
+    '  ...',
+    '. ...',
+    ' ....',
+    '.....',
+    '!....',
+    '.!...',
+    '..!..',
+    '...!.',
+    '....!',
+    '!...!',
+    '.!..!',
+    '..!.!',
+    '...!!',
+    '!..!!',
+    '.!.!!',
+    '..!!!',
+    '!.!!!',
+    '.!!!!',
+    '!!!!!',
+    '.!!!!',
+    '!.!!!',
+    '!!.!!',
+    '!!!.!',
+    '!!!!.',
+    '.!!!.',
+    '!.!!.',
+    '!!.!.',
+    '!!!..',
+    '.!!..',
+    '!.!..',
+    '!!...',
+    '.!...',
+    '!....',
+    '.....',
+    '. ...',
+    '.. ..',
+    '... .',
+    '.... ',
+    ' ... ',
+    '. .. ',
+    '.. . ',
+    '...  ',
+    ' ..  ',
+    '. .  ',
+    '..   ',
+    ' .   ',
+  ]
+}
+const spinner = ora({ spinner: omit })
+
+
+
+const timeout = (time = 1000) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve()
+    }, time)
+  })
+}
 
 const queryHandler = (allText) => {
   // 标准版单次最长请求由6000字节改为1000字符
@@ -25,7 +96,8 @@ export const translate = async (allText, from, to) => {
     const chankValues = queryHandler(allTextValues);
     const chankKeys = queryHandler(allTextKeys);
     const querys = chankValues.map(v => v.join('\n'))
-
+    console.log(`翻译为 ${to} start`)
+    spinner.start()
 
     let res = [];
     for (let i = 0; i < querys.length; i++) {
@@ -56,7 +128,11 @@ export const translate = async (allText, from, to) => {
         }
         return { key: chankKeys[i][j], item }
       })]
+      spinner.text = ((i / querys.length) * 100).toFixed(2) + '%'
+      await timeout()
     }
+    spinner.stop()
+    spinner.succeed("翻译 Sucess ");
 
     return res.reduce((a, b) => ({ ...a, [b.key]: b.item.dst }), {})
 

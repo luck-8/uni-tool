@@ -22,7 +22,6 @@
     "md5": "^2.3.0",
     "tsup": "^6.6.3"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luck-8/uni-tool.git"
@@ -30,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/luck-8/uni-tool/issues"
   },
-  "homepage": "https://github.com/luck-8/uni-tool#readme"
+  "homepage": "https://github.com/luck-8/uni-tool#readme",
+  "devDependencies": {
+    "ora": "^6.3.1"
+  }
 }
